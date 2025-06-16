@@ -9,6 +9,12 @@ use Faker\Provider\pt_BR\Person;
 class CreateTest extends TestCase
 {
     /**
+     * Melhorias:
+     *  - Isolamento de testes com RefreshDatabase
+     *  - Nos testes existentes, não foi identificado o uso do trait RefreshDatabase, que é essencial para garantir que cada teste comece com o banco de dados em um estado limpo e controlado.
+     */
+    
+    /**
      * Teste de criação de usuário quando não autorizado
      *
      * @return void

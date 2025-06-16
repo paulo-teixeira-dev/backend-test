@@ -12,6 +12,12 @@ use Symfony\Component\HttpFoundation\Response;
 class ShowTest extends TestCase
 {
     /**
+     * Melhorias:
+     *  - Isolamento de testes com RefreshDatabase
+     *  - Nos testes existentes, não foi identificado o uso do trait RefreshDatabase, que é essencial para garantir que cada teste comece com o banco de dados em um estado limpo e controlado.
+     */
+    
+    /**
      * Teste de busca de conta
      *
      * @return void

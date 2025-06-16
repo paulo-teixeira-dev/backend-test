@@ -9,6 +9,11 @@ use App\Repositories\Account\Create;
 use App\Exceptions\InternalErrorException;
 use App\Integrations\Banking\Account\Create as BankingCreate;
 
+/**
+ * Melhorias:
+ *  - Padronizar a entrada com DTOs
+ */
+
 class Register extends BaseUseCase
 {
     /**

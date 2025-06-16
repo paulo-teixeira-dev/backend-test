@@ -12,6 +12,12 @@ use App\Integrations\Banking\Card\Find;
 class CardController extends Controller
 {
     /**
+     * Melhorias:
+     * 
+     * - Utilizar Resources (Laravel API Resources) para retorno de dados, evitando retorno direto de arrays nos métodos
+     */
+
+    /**
      * Exibe dados de um cartão
      *
      * POST api/users/{id}/card
@@ -26,6 +32,15 @@ class CardController extends Controller
             new DefaultResponse($response['data'])
         );
     }
+
+    /**
+     * Melhorias:
+     * 
+     * - Não possui validação para os campos enviados no payload.
+     *  - Utilizar Form Requests para validação de entrada.
+     * - Aplicar classes DTO (params)
+     * - Utilizar Resources (Laravel API Resources) para retorno de dados, evitando retorno direto de arrays nos métodos
+     */
 
     /**
      * Ativa um cartão

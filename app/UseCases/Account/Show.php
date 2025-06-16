@@ -6,6 +6,11 @@ use Throwable;
 use App\UseCases\BaseUseCase;
 use App\Integrations\Banking\Account\Find;
 
+/**
+ * Melhorias:
+ *  - Padronizar a entrada com DTOs
+ */
+
 class Show extends BaseUseCase
 {
     /**
