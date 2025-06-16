@@ -14,6 +14,13 @@ use App\Http\Resources\Account\ShowResource;
 
 class AccountController extends Controller
 {
+     /**
+     * Melhorias:
+     * 
+     * - Aplicar classes DTO (params)
+     * - Aplicar o padrão de Injeção de Dependência via construtor, promovendo melhor estabilidade, legibilidade e desacoplamento.
+     */
+
     /**
      * Ativa a conta bancária
      *

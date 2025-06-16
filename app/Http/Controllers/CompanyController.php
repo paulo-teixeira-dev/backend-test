@@ -16,6 +16,7 @@ use App\Repositories\Company\Update as CompanyUpdate;
 
 class CompanyController extends Controller
 {
+   
     /**
      * Endpoint de dados de empresa
      *
@@ -33,6 +34,13 @@ class CompanyController extends Controller
             )
         );
     }
+
+     /**
+     * Melhorias:
+     * 
+     * - Aplicar classes DTO (params)
+     * - Evitar lógica de domínio diretamente no controller Company. O domínio (ex: entidades, regras, validações de negócio) deve ser acessado dentro do Use Case, que é o local responsável por coordenar a aplicação das regras de negócio.
+     */
 
     /**
      * Endpoint de modificação de empresa

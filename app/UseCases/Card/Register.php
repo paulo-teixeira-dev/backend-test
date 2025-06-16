@@ -8,6 +8,11 @@ use App\Repositories\Card\Create;
 use App\Domains\Card\Register as RegisterDomain;
 use App\Integrations\Banking\Card\Register as LinkCard;
 
+/**
+ * Melhorias:
+ *  - Padronizar a entrada com DTOs
+ */
+
 class Register extends BaseUseCase
 {
     /**

@@ -17,6 +17,25 @@ use App\Http\Controllers\HealthCheckController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+/**
+ * sugestão:
+ * 
+ * Agrupar rotas públicas e privadas usando prefixos como /auth e /public.
+ *  - grupo /auth: 
+ *      - utilizar middleware de autenticação.
+ *      - utilizar middleware de permissão sobre rotas as rotas deste grupo.
+ * Utilizar versionamento nas rotas (/api/v1/...).
+ *  - Mesmo que o projeto ainda esteja em fase inicial, usar um prefixo como “/v1”, etc. facilita para evoluções futuras.
+ * 
+ * Melhorias: 
+ * 
+ * Nomear todas as rotas
+ *  - Se a URL da rota mudar, você não precisa alterar todos os pontos onde ela é usada (como route()). Basta atualizar o nome da rota no arquivo de rotas.
+ *  - Utilizar padrão de nomeação com exemplo “api.auth.login” onde diz ser rota exclusiva da api, utilizando a feature de auth (autenticação) e o método login.
+ */
+
+
 // Healthcheck
 Route::get('healthcheck', [HealthCheckController::class, 'healthCheck']);
 
@@ -35,6 +54,11 @@ Route::group(['middleware' => ['auth:sanctum', 'policies.app']], function () {
         Route::patch('', [CompanyController::class, 'update']);
     });
 
+     /**
+     * melhorias: Usar Route::apiResources para controllers RESTful, eliminando declarações repetitivas
+     *  - Exemplo eliminaria a necessidade de declarar cada método (index, show, create e update) e adicionando “except” para rota de exclusão.
+     */
+
     // Users
     Route::prefix('users')->group(function () {
         Route::get('', [UserController::class, 'index']);
@@ -44,6 +68,15 @@ Route::group(['middleware' => ['auth:sanctum', 'policies.app']], function () {
         Route::post('', [UserController::class, 'create']);
 
         Route::patch('{id}', [UserController::class, 'update']);
+
+         /**
+         * melhorias: Agrupamento por responsabilidade
+         *  - As rotas de Account e Card poderiam ser agrupadas de acordo com suas responsabilidades específicas, 
+         *    em vez de estarem totalmente aninhadas dentro do grupo “users”.
+         *  - Uma estrutura mais organizada seria, por exemplo:
+         *      - Grupo de Account: users/{user}/account
+         *      - Grupo de Card: users/{user}/card
+         */
 
         // Accounts
         Route::prefix('{id}/account')->group(function () {
